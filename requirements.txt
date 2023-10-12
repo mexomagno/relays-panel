@@ -1,0 +1,6 @@
+ConfigArgParse==0.13.0
+gpiozero==1.6.2
+paho-mqtt==1.5.1
+python-dotenv==0.21.1
+RPi.GPIO==0.7.0
+virtualenv==15.1.0

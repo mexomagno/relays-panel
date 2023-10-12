@@ -1,0 +1,11 @@
+[Unit]
+Description=python controlled relays
+[Service]
+User=mexomagno
+Group=mexomagno
+WorkingDirectory=/home/mexomagno/relays-panel
+ExecStart=python3 relays.py
+Restart=on-failure
+StandardError=syslog
+[Install]
+WantedBy=multi-user.target
