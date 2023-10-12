@@ -77,6 +77,9 @@ def on_message(client, userdata, msg):
 client = mqtt.Client("raspi")
 client.on_connect = on_connect
 client.on_message = on_message
-client.username_pw_set(username=ENV.get('MOQUITTO_USER'), password=ENV.get('MOSQUITTO_PASS'))
+username = ENV.get('MOSQUITTO_USER')
+password = ENV.get('MOSQUITTO_PASS')
+print(f'Starting server for {username} : {password}')
+client.username_pw_set(username=username, password=password)
 client.connect('192.168.1.2')  # todo: get programmatically
 client.loop_forever()

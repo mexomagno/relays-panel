@@ -17,11 +17,16 @@ def on_connect(client, userdata, flags, rc):
   print("Connected with result code "+str(rc))
 
 def connect():
+  username=ENV.get('MOSQUITTO_USER')
+  password=ENV.get('MOSQUITTO_PASS')
+  host = ENV.get('MOSQUITTO_HOST')
+  port = int(ENV.get('MOSQUITTO_PORT', 1883))
+  print(f"Will connect as {username} with pass {password} to {host}:{port}")
   client = mqtt.Client()
-  client.username_pw_set(username=ENV.get('MOSQUITTO_USER'), password=ENV.get('MOSQUITTO_PASS'))
+  client.username_pw_set(username=username, password=password)
   # client.loop_start()
   client.on_connect = on_connect
-  client.connect(ENV.get('MOSQUITTO_HOST'), int(ENV.get('MOSQUITTO_PORT', 1883)))
+  client.connect(host, port)
   client.loop_start()
   return client
 
