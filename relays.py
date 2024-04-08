@@ -3,7 +3,7 @@ from gpiozero import LED
 import os
 from dotenv import dotenv_values
 
-ENV = dotenv_values('.env')
+ENV = dotenv_values('./.env')
 
 # Raspi gpios, in order of panel outputs
 pins = [2, 3, 4, 17, 18, 15, 14]
