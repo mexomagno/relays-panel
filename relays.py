@@ -74,7 +74,7 @@ def on_message(client, userdata, msg):
     else:
         print(f"Unsupported device class '{device_class}'")
 
-client = mqtt.Client("raspi")
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, "raspi")
 client.on_connect = on_connect
 client.on_message = on_message
 username = ENV.get('MOSQUITTO_USER')
